@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>home page</title>
+</head>
+<body><% if(pass==true){%>
+
+
+
+	<a href="/logout">logout</a>
+
+
+	<form action="/change" method="POST">
+		<input placeholder="username" name="username" value=<%= username %>><p></p>
+		<input placeholder="firstname" name="firstname" value=<%= firstname %>><p></p>
+		<input placeholder="secondname" name="secondname" value=<%= secondname %>><p></p>
+		<input placeholder="thirtname" name="thirtname" value=<%= thirtname %>><p></p>
+		<input placeholder="passport" name="passport" value=<%= passport %>><p></p>
+		
+		<button type="submit">change</button>
+	</form>
+	<form method="POST" action="/generate"><input name="password" readonly value=<%= password %>><button type="submit">gen</button></form>
+	<p><%= message %></p>
+
+
+
+	<%} else{%>
+
+<p>something good</p>
+<a href="login">login</a>
+
+	<%}%>
+
+	<!--<form action="/check" method="POST"><input name="parol"><button type="submit">check</button></form>-->
+</body>
+
+</html>

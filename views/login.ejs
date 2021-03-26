@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>login page</title>
+	<script type="text/javascript">
+		$('.target').dblclick(function(){
+			console.log('dblclick');
+		});
+	</script>
+</head>
+<body><% if(pass==false){%>
+	<form method="POST" action="/login">
+		<input placeholder="username" name="username">
+		<input placeholder="password" name="password">
+		<button type="submit" class="target">login</button>
+	</form>
+	<h4>you need to log in twice due to initialization</h4>
+	<%} else{%>
+	<h3>you are already logined</h3>
+	<%}%>
+	<a href="parser">sign up</a>
+	<% if(pass==true){%>
+	<a href="some">profile</a>
+	<%} else{%>
+	<div><%= message %></div>
+	<%}%>
+	
+</body>
+</html>

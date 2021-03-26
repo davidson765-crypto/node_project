@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>contact page</title>
+</head>
+<body><% if(pass==false){%>
+	<form method="POST" action="/parser">
+		<input placeholder="username" name="username"><p></p>
+		<input placeholder="firstname" name="firstname"><p></p>
+		<input placeholder="secondname" name="secondname"><p></p>
+		<input placeholder="thirtnaem" name="thirtname"><p></p>
+		<input placeholder="passport" name="passport"><p></p>
+		<button type="submit">send</button>
+	</form>
+	<form method="POST" action="/gen"><input name="password" readonly value=<%= password %>><button type="submit">gen</button></form>
+
+	<div><%= message %></div><!--yzwox53liz-->
+	<%} else{%>
+	<h3>you are already registered</h3>
+	<%}%>
+
+	<p></p>
+
+	<a href="/login">login</a>
+	<% if(pass==true){%>
+	<a href="some">profile</a>
+	<%}%>
+	
+	
+</body>
+</html>
