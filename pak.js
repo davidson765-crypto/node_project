@@ -178,7 +178,7 @@ app.post('/generate',urlencodedParser,function(req,res){
 app.post('/gen',urlencodedParser,function(req,res){
 	global.password = gen()
 	let message = ''
-	let pass = global.pass
+	let pass = false
 	res.render('parser',{password: password,message: message,pass: pass})
 })
 
