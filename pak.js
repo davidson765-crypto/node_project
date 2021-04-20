@@ -271,19 +271,18 @@ app.post('/login', urlencodedParser, function(req,res){
 
 			let log_check = global.log_check
 
-			if(log_check==true){
-				global.pass = true
-
-
-				initial(username)
-				global.message = ''
-				res.redirect('some')
-			}
-			else{
-				global.pass = false
-				message = '* invalid password'
-				res.render('login',{pass: pass,message: message})
-			}
+			setTimeout(()=>{
+				if(log_check==true){
+					global.pass = true
+					initial(username)
+					global.message = ''
+					res.redirect('some')
+				}
+				else{
+					global.pass = false
+					message = '* invalid password'
+					res.render('login',{pass: pass,message: message})
+			}},2000)
 		}
 	}
 	else{
