@@ -214,21 +214,23 @@ app.post('/parser',urlencodedParser, function(req,res){
 	}
 	else{
 		if(passport.length==10 && firstname!='' && secondname!='' && thirtname!=''){
-			global.pass = true
-			global.username = username
-			global.firstname = firstname
-			global.secondname = secondname
-			global.thirtname = thirtname
-			global.passport = passport
-			global.password = password
-			global.message = ''
+			setTimeout(()=>{
+                            global.pass = true
+			    global.username = username
+			    global.firstname = firstname
+			    global.secondname = secondname
+			    global.thirtname = thirtname
+			    global.passport = passport
+			    global.password = password
+			    global.message = ''
 
 			
-			//global.password = password
-			main(id,username,firstname,secondname,thirtname,passport,pasword)
-			a = global.a
-			let user = global.user
-			res.redirect('some')
+			    //global.password = password
+			    main(id,username,firstname,secondname,thirtname,passport,pasword)
+			    a = global.a
+			    let user = global.user
+			    res.redirect('some')
+                        },2000) 
 		}
 		else{
 			global.pass = false
