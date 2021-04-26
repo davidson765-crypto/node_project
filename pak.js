@@ -139,28 +139,33 @@ app.post('/change', urlencodedParser, function(req,res){
 	let bor = a.includes(change_username)
 	console.log(bor, username)
 
-	if(bor == true){
-		let message = '* this username is already used'
-		change_username = username
+	setTimeout(()=>{
 
-		res.render('some',{message: message,username: change_username,firstname: change_firstname,secondname: change_secondname,thirtname: change_thirtname,passport: change_passport,password: password})
-	}
+		if(bor == true){
+			let message = '* this username is already used'
+			change_username = username
 
-	else{
-		//let a = global.a
-		//a.push(change_username)
-		//global.a = a
-		
-		
-		console.log(a)
-		//change_username = user[0]['username']
-		change(change_username,change_firstname,change_secondname,change_thirtname,change_passport,change_password)
-		console.log(change_username,change_firstname,change_secondname,change_thirtname,change_passport,change_password)
-		initial(change_username)
-		main_two()
-		res.render('some',{username: change_username,firstname: change_firstname,secondname: change_secondname,thirtname: change_thirtname,passport: change_passport,password: password})
-		//6fjn2kea2uv
-	}
+			res.render('some',{message: message,username: change_username,firstname: change_firstname,secondname: change_secondname,thirtname: change_thirtname,passport: change_passport,password: password})
+		}
+
+		else{
+			//let a = global.a
+			//a.push(change_username)
+			//global.a = a
+			
+			
+			console.log(a)
+			//change_username = user[0]['username']
+			change(change_username,change_firstname,change_secondname,change_thirtname,change_passport,change_password)
+			console.log(change_username,change_firstname,change_secondname,change_thirtname,change_passport,change_password)
+			initial(change_username)
+			main_two()
+			res.render('some',{username: change_username,firstname: change_firstname,secondname: change_secondname,thirtname: change_thirtname,passport: change_passport,password: password})
+			//6fjn2kea2uv
+		}
+
+	},1000)
+
 
 
 })
