@@ -26,33 +26,34 @@ app.get('/parser', function(req,res){
 })
 
 app.get('/some', function(req,res){
-	let pass = global.pass
-	let password = global.password
-	let username = global.username
-	
-	
-	let secondname = global.secondname
-	let thirtname = global.thirtname
-	let passport = global.passport
-	
-	let firstname = global.firstname
-	let message = ''
+	setTimeout(()=>{
+		let pass = global.pass
+		let password = global.password
+		let username = global.username
+		
+		
+		let secondname = global.secondname
+		let thirtname = global.thirtname
+		let passport = global.passport
+		
+		let firstname = global.firstname
+		let message = ''
 
-	if(typeof username == 'undefined' || typeof firstname == 'undefined' || typeof secondname == 'undefined' || typeof thirtname == 'undefined' || typeof passport == 'undefined'){
-		username = ''
-		firstname = ''
-		secondname = ''
-		thirtname = ''
-		passport = ''
-		password = ''
-	}
-	else{
-		initial(username)
-	}
-	
-
-	//global.password = gen()
-	res.render('some',{message: message,pass: pass,password: password,username: username,firstname: firstname,secondname: secondname,thirtname: thirtname,passport: passport})
+		if(typeof username == 'undefined' || typeof firstname == 'undefined' || typeof secondname == 'undefined' || typeof thirtname == 'undefined' || typeof passport == 'undefined'){
+			username = ''
+			firstname = ''
+			secondname = ''
+			thirtname = ''
+			passport = ''
+			password = ''
+		}
+		else{
+			initial(username)
+		}
+		
+		
+		res.render('some',{message: message,pass: pass,password: password,username: username,firstname: firstname,secondname: secondname,thirtname: thirtname,passport: passport})
+	},1000)
 })
 
 
