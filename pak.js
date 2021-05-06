@@ -162,7 +162,7 @@ app.post('/change', urlencodedParser, function(req,res){
 	if(change_thirtname==''){
 		change_thirtname = thirtname
 	}
-	if(change_passport==''){
+	if(change_passport=='' || change_passport.length<10){
 		change_passport = passport
 	}
 	if(change_password==''){
@@ -177,7 +177,7 @@ app.post('/change', urlencodedParser, function(req,res){
 
 	setTimeout(()=>{
 
-		if(bor == true){
+		if(bor == true && change_username!=username){
 			let message = '* this username is already used'
 			change_username = username
 
