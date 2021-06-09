@@ -99,12 +99,14 @@ app.post('/change', urlencodedParser, function(req,res){
 	let change_secondname = req.body.secondname
 	let change_thirtname = req.body.thirtname
 	let change_passport = req.body.passport
+	//let password = req.body.password
 	let change_password = passwordHash.generate(password)
 	let username = global.username
 	let firstname = global.firstname
 	let secondname = global.secondname
 	let thirtname = global.thirtname
 	let passport = global.passport
+	//let password = global.password
 
 	main_two()
 
@@ -176,8 +178,8 @@ app.post('/generate',urlencodedParser,function(req,res){
 	global.password = gen()
 	let message = ''
 	let pass = global.pass
-	res.redirect('some')
-	//res.render('some',{password: password,message: message,pass: pass})
+	//res.redirect('some')
+	res.render('some',{password: password,message: message,pass: pass})
 })
 
 
@@ -297,7 +299,7 @@ app.post('/login', urlencodedParser, function(req,res){
 					global.pass = false
 					message = '* invalid password'
 					res.render('login',{pass: pass,message: message})
-			}},2000)
+			}},1000)
 		}
 	}
 	else{
@@ -357,7 +359,7 @@ async function initial(username){
 	const [rop] = await conn.execute('select count(*) from upop')
 
 	const [user] = await conn.execute('select * from upop where username="'+username+'"')
-
+	global.username = user[0]['username']
 	global.firstname = user[0]['firstname']
 	global.secondname = user[0]['secondname']
 	global.thirtname = user[0]['thirtname']
